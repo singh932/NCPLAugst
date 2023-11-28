@@ -7,10 +7,9 @@ trigger:
 - master
 
 pool:
-  name: devopsAgentPool
+  name: Default
   demands:
-  - agent.name -equals devopsAgent
-  - Agent.Version -gtVersion 3.230.0
+  - agent.name -equals agent
 
 steps:
 - task: Maven@3
