@@ -10,6 +10,7 @@ pool:
   name: devopsAgentPool
   demands:
   - agent.name -equals devopsAgent
+  - Agent.Version -gtVersion 3.230.0
 
 steps:
 - task: Maven@3
