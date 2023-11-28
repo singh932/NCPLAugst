@@ -7,7 +7,9 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  name: devopsAgentPool
+  demands:
+  - agent.name -equals devopsAgent
 
 steps:
 - script: echo Hello, world!
