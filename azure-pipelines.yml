@@ -12,20 +12,16 @@ pool:
   - agent.name -equals HARMAN
 
 steps:
-- task: Maven@4
+- task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '17.0.9'
+    jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    allowBrokenSymlinks: false
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Path'
-    jdkVersionOption: '17.0.9'
-    mavenDirectory: 'C:\Program Files\Maven\bin'
-    mavenSetM2Home: false
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
+    goals: 'package'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(agent.builddirectory)'
