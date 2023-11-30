@@ -10,6 +10,8 @@ pool:
   name: Default
   demands:
   - agent.name -equals selfAgent
+  - Agent.Version -gtVersion 3.230.2
+  - maven
 
 steps:
 - task: Maven@3
